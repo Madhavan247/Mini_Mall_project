@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saraswathi Mess.com </title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #201f1f;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 99vw;
+    height: 60vh;
+    background: url('https://t4.ftcdn.net/jpg/02/09/64/33/360_F_209643310_7tdlZx6oMF9iPqnt2PzbXdfYTNKGohdm.jpg') center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+.animate-title {
+    z-index: 1;
+    font-size: 3rem;
+    animation: fadeInDown 1.5s ease-in-out;
+}
+.animate-subtitle {
+    z-index: 1;
+    font-size: 1.2rem;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+/* Counter Section */
+.counter-section {
+    padding: 2rem;
+    text-align: center;
+}
+.counter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.counter-card {
+    background: rgb(51, 47, 47);
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    padding: 20px;
+    
+}
+.counter-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 10px 5px 5px red;
+}
+.counter-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Menu Page */
+.counter-header {
+    background: #ff7f50;
+    padding: 1rem;
+    color: white;
+    text-align: center;
+}
+.back-btn {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+.menu-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.menu-item img {
+    border-radius: 10px;
+}
+.order-btn {
+    background: #ff7f50;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.order-btn:hover {
+    background: #e5673f;
+
+  }
+  .counter-card button{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    border: 1px solid;
+    background-color: darkviolet;
+    border-radius: 25px;
+    margin: 10px;
+  }
+  .counter-section h2{
+    border: 1px solid ;
+    background-color: black;
+    color: white;
+    /* margin: 10px; */
+  }
+
+/* Animations */
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+    </style>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+     console.log("Grand Hotel Online Ordering Loaded");
+});
+
+    </script>
+</head>
+<body>
+    <header class="hero">
+        <div class="overlay"></div>
+        <h1 class="animate-title"style="margin-right: -0.1em; letter-spacing: 0.2em; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">🍽️ Grand Hotel of Saraswathi Mess</h1>
+        <p class="animate-subtitle">Taste Luxury at Your Fingertips</p>
+    </header>
+
+    <section class="counter-section">
+        <h2>Choose Your Food Counter</h2>
+        <div class="counter-grid">
+            <a href="snacks.html" class="counter-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRTZH1UpK8UfltWgl6ISEX4S9q-2ohRcYlhgcz-0mEDQmKALcgCsiTu8t7BBuo5LQlZF0&usqp=CAU" alt="Snacks">
+                <h3>Counter 1: Snacks & Refreshments</h3>
+                <button href="">Click it</button>
+            </a>
+            <a href="veg.html" class="counter-card">
+                <img src="https://cdn.vox-cdn.com/thumbor/fWdJKI_dirNSL2bBWVVWVW_I4-Q=/0x0:7360x4912/1200x800/filters:focal(3092x1868:4268x3044)/cdn.vox-cdn.com/uploads/chorus_image/image/67000785/shutterstock_1435374326.0.jpg" alt="Veg Foods">
+                <h3>Counter 2: Veg Foods</h3>
+                <button href="">Click it</button>
+            </a>
+            <a href="non-veg.html" class="counter-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFBM5JcIya1ObglZJYk2yTcFAJFu3K3TAlag&s" alt="Non-Veg Foods">
+                <h3>Counter 3: Non-Veg Foods</h3>
+                <button href="">Click it</button>
+            </a>
+            <a href="fry.html" class="counter-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdVhLk5pec6oA1_Oms36hh68TpUHS09915GA&s" alt="Oil Fry Counter">
+                <h3>Counter 4: Oil Fry Counter</h3>
+                <button href="">Click it</button>
+            </a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- <h1 class="headline__primary" style="margin-right: -0.1em; letter-spacing: 0.2em; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">Legendary Biriyani</h1> -->
+<!-- <div class="menu-bg" style="background-image: url('https://i.pinimg.com/736x/95/ca/0f/95ca0f0a0522dd291c33cf750017d749.jpg');"></div> -->

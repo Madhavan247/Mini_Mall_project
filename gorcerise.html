@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maddy Mini-Mall</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="img/image/png" href="restaurant-logo.png">
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f3f3f3;
+  color: #333;
+}
+
+.navbar {
+  background-color: #2e7d32;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.cart {
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.hero {
+  background-image: url('https://via.placeholder.com/1200x400?text=Fresh+Groceries+Online');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: crimson;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: black;
+}
+
+.product-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.product-section h2 {
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  padding: 0 20px;
+}
+
+.product-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.product-card p {
+  color: #2e7d32;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #1b5e20;
+}
+
+footer {
+  background-color: #2e7d32;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+  </style>
+  <script>
+    let cartCount = 0;
+
+function addToCart() {
+  cartCount++;
+  document.getElementById("cart-count").textContent = cartCount;
+  alert("✅ Item added to cart!");
+}
+
+  </script>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo"> FreshMart</div>
+    <nav>
+      <a href="http://127.0.0.1:5500/mall.html">Home</a>
+      <a href="https://www.parleproducts.com/">Products</a>
+      <a href="#">Contact</a>
+      <div class="cart">Gpay :<span id="cart-count">8610566874</span></div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Buy Fresh Groceries Online</h1>
+    <p>Best Quality • Low Prices • Fast Delivery</p>
+  </section>
+
+  <section class="product-section">
+    <h2>Grocery Items</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW2bcJj8jgiZ9THfbu_1LfQimB_t3hl_yejQ&shttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW2bcJj8jgiZ9THfbu_1LfQimB_t3hl_yejQ&s" alt="Rice">
+        <h3>Basmati Rice 5kg</h3>
+        <p>₹399</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="data:image/jpeg;base64,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" alt="Oil">
+        <h3>Sunflower Oil 1L</h3>
+        <p>₹145</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5sGE1DaFd-z4JtrEAyuX7Z90qvzYdPhJBrQ&s" alt="Onions">
+        <h3>Onion 1kg</h3>
+        <p>₹35</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlngDFR2clkR4cwl8m2cFAbDwgYYbdQnx5HA&s" alt="Biscuits">
+        <h3>Parle-G Biscuits</h3>
+        <p>₹10</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuDtFVcQkqZYyIOGBMq8WmqKzkP9OlP8HXxw&s" alt="Milk">
+        <h3>Fresh Milk 1L</h3>
+        <p>₹50</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 FreshMart Grocery Store. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

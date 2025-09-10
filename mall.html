@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maddy Mini-Mall.com</title>
+  <link rel="icon" type="image/png" href="restaurant-logo.png">
+  <style>
+    *{
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+}
+
+header {
+  background-color: #1c1e20;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  /* position: sticky; */
+  /* top:0; */
+}
+header h1{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.floors {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  flex-wrap: wrap;
+  
+  
+}
+
+.floor-card {
+  /* background: rgb(188, 189, 186); */
+  /* border: 1px solid #ccc; */
+  border-radius: 10px;
+  position: relative;
+  /* display: flex; */
+  place-content: center;
+  place-items: center;
+  overflow: hidden;
+  width: 250px;
+  height: 254px;
+  padding: 1.5rem;
+  margin: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  box-shadow: 5px 5px 8px rgb(28, 28, 43), 10px 10px 8px rgb(40, 41, 37), 15px 15px 8px rgb(56, 57, 48);
+  
+}
+body{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuLkOR1GShK8nK6vFWe2ZEtczahHHvsPuONg&s");
+        background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+}
+body.floor-card {
+  background: rgb(141, 41, 157);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  overflow: hidden;
+  width: 250px;
+  height: 254px;
+  padding: 1.5rem;
+  margin: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  
+}
+.floor-card h2 {
+    z-index:0;
+    color: white;
+    font-size: 2em;
+}
+.floor-card::before{
+    content:calc(var(--position)-1*(360/var(--quanlity))*1deg);
+    position:absolute;
+    width: 100px;
+    background-image: linear-gradient(180deg, rgb(0,183,255),rgb(255,48,255));
+    height: 330%;
+    top: -20%;
+    animation: rotBGimg 3s linear infinite;
+    transition: all 0.2s linear;
+
+}
+@keyframes rotBGimg{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+.floor::after{
+    content:"";
+    position: absolute;
+    background-color: #07182e;
+    inset: 5px;
+    /* border: none; */
+    border-radius: 15px;
+}
+
+.floor-card:hover {
+  /* transform: scale(1.05); */
+  transform: translateY(-10px);
+    box-shadow: 10px 5px 5px red;
+    background-color: #313335;
+    color: white;
+  
+}
+
+
+.details-section {
+  padding: 2rem;
+  background: #fff;
+  border-top: 2px solid #ccc;
+  margin: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  background-color: #0a2036;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+.floors .slider{
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+.floors.floor-card{
+
+    background-image: url('https://t4.ftcdn.net/jpg/02/09/64/33/360_F_209643310_7tdlZx6oMF9iPqnt2PzbXdfYTNKGohdm.jpg');
+  background-size: center cover;   /* cover the whole div */
+  background-position: center; /* center the image */
+  background-repeat: no-repeat;
+  border: 2px solid #ccc;
+}
+.floor-card a{
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    font-family: monospace;
+}
+.logo{
+    display: inline;
+    width: 95vw;
+    height:40vhx;
+    /* size: 50%; */
+}
+.animate-title  {
+    z-index: 1;
+    font-size: 3rem;
+    animation: fadeInDown 1.5s ease-in-out;
+}
+.animate-subtitle {
+    z-index: 1;
+    font-size: 1.2rem;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+  </style>
+  <script>
+    function showDetails(floor) {
+  const detailsSection = document.getElementById("details");
+  const content = document.getElementById("details-content");
+
+  let floorDetails = {
+    gold: "<h3>Home Items</h3><p>Premium gold rings,necklaces, earrings, bangles.</p>",
+    kids: "<h3>Kids Items</h3><p>Toys, Clothes, School Supplies and more.</p>",
+    men: "<h3>Men's Items</h3><p>Fashion, Accessories, Grooming and more.</p>",
+    Home: "<h3>Home Items</h3><p>Tvs, washing Machines,Refrigerators,Acs</p>",
+    kids: "<h3>Kids Items</h3><p>Toys, Clothes, School Supplies and more.</p>",
+    men: "<h3>Men's Items</h3><p>Fashion, Accessories, Grooming and more.</p>",
+
+  };
+
+  content.innerHTML = floorDetails[floor] || "<p>No information available.</p>";
+  detailsSection.classList.remove("hidden");
+}
+
+function hideDetails() {
+  document.getElementById("details").classList.add("hidden");
+}
+
+  </script>
+</head>
+<body>
+  <header>
+  
+    <h1 class="animate-title"style="margin-right: -0.1em; letter-spacing: 0.2em; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">Welcome to Maddy's Mini Mall</h1>
+    <p class="animate-subtitle">Explore your favorite items floor by floor</p>
+    <img class="logo" src="https://t4.ftcdn.net/jpg/03/06/05/45/360_F_306054576_cODtakEEANIH8BZN8iLD8ltthqdrMCGo.jpg" alt="">
+  </header>
+  <video autoplay muted loop id="bg-video">
+    <source src="Dark Cinematic Background  100 Free Stock Footage.mp4" type="video/mp4">
+  </video>
+  <main class="floors">
+    <!-- <div class="slider"> -->
+    <div class="floor-card"style="background-image: url('https://i.pinimg.com/736x/95/ca/0f/95ca0f0a0522dd291c33cf750017d749.jp');"onclick="showDetails('gold')">
+      <h2>Gold & Jewelry 1st Floor </h2>
+      <p>Premium gold rings,necklaces, earrings, bangles</p>
+      <button><a href="gold.html"> Go here </a></button>
+    </div>
+
+    <div class="floor-card"onclick="showDetails('Home')">
+      <h2> Home Appliances 2nd Floor </h2>
+      <p>Tvs, Washing Machines, Refrigerators,ACs</p>
+      <button><a href="home.html"> Go here </a></button>
+    </div>
+
+    <div class="floor-card" onclick="showDetails('cooking')">
+      <h2>Groceries 3rd Floor</h2>
+      <p>Lot of things here the floor</p>
+      <button><a href="gorcerise.html"> GO here </a></button>
+    </div>
+    <div class="floor-card" onclick="showDetails('kids')">
+      <h2>Women's Fashion 4th Floor</h2>
+      <p>Sarees,Kurtis, Wrstern Wear, Handbags</p>
+      <button><a href="women.html"> Go here </a></button>
+    </div>
+    <div class="floor-card" onclick="showDetails('women')">
+      <h2>Men's Fashion 5 Floor </h2>
+      <p>Shirts, Trousers,Ethnic Wear,Shoes, ect.</p>
+      <button><a href="mens.html"> Go here </a></button>
+    </div>
+    <div class="floor-card" onclick="showDetails('men')">
+      <h2>Kids Toys 6th Floor </h2>
+      <p>Dolls,ToyCars,Puzzles,Board Games</p>
+      <button><a href=""> Go here </a></button>
+    </div>
+    <div class="floor-card" onclick="showDetails('refreshment')">
+      <h2>Snacks & Foods 7th Floor </h2>
+      <p>CHips, Soft Drinks, Read-to-eat Meals,Meats,Sweets</p>
+      <button><a href="snacks.html"> Go here </a></button>
+      <!-- <img src="https://t4.ftcdn.net/jpg/02/09/64/33/360_F_209643310_7tdlZx6oMF9iPqnt2PzbXdfYTNKGohdm.jpg" alt="Snacks"> -->
+    </div>
+    <div class="floor-card" onclick="showDetails('theater')">
+      <h2>Entertiment 8th Floor </h2>
+      <p>Movie Hall,Popcorn stall,Lounge Area</p>
+      <button><a href="http://127.0.0.1:5500/theatre.html"> Go here </a></button>
+    </div>
+    </div>
+  </main>
+
+  <section id="details" class="details-section hidden">
+    <button onclick="hideDetails()">Back</button>
+    <div id="details-content"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
